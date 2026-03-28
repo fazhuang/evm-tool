@@ -1,0 +1,23 @@
+# Node
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv
+venv/
+ENV/
+
+# HZ-SAGE Specific (Security & Privacy)
+.env
+backend/config.json
+backend/__pycache__/
+frontend/node_modules/
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: #f9f9f9;
+    --bg-secondary: #ffffff;
+    --text-primary: #1a1a1a;
+    --text-secondary: #6e6e6e;
+    --accent-color: #10a37f; /* ChatGPT Green */
+    --border-color: #e5e5e5;
+    --sidebar-bg: #202123;
+  }
+
+  [data-theme='dark'] {
+    --bg-primary: #343541;
+    --bg-secondary: #444654;
+    --text-primary: #ececf1;
+    --text-secondary: #c5c5d2;
+    --border-color: #4d4d4f;
+  }
+
+  html, body {
+    @apply font-sans antialiased m-0 p-0 h-full w-full;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+  }
+}
+
+/* Modern AI Chat Layout Utility */
+.ai-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.ai-card {
+  @apply bg-white dark:bg-[#444654] border border-[#e5e5e5] dark:border-[#4d4d4f] rounded-xl shadow-sm transition-all duration-200;
+}
+
+/* Claude/ChatGPT Message Style */
+.message-bubble {
+  @apply py-6 px-4 mb-4 rounded-lg flex gap-4;
+}
+
+.user-message {
+  @apply bg-transparent;
+}
+
+.assistant-message {
+  @apply bg-[#f7f7f8] dark:bg-[#444654] border-y border-[#e5e5e5] dark:border-[#4d4d4f];
+}
+
+/* Premium Sidebar */
+.sidebar {
+  @apply bg-[#202123] text-white h-full flex flex-col;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+}

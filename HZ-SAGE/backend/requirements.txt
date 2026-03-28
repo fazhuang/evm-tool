@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+python-multipart
+pypdf
+python-docx
+fpdf2
+pandas
+numpy
+langchain
+langchain-core
+langchain-openai
+pydantic
+python-dotenv
