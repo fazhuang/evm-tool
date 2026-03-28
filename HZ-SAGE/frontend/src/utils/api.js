@@ -48,6 +48,22 @@ export const verifyAdminPasscode = async (passcode) => {
   return response.data;
 };
 
+export const extractBiddingParams = async (file) => {
+  const formData = new FormData();
+  formData.append('file', file);
+  const response = await api.post('/construction/extract_params', formData, {
+    headers: { 'Content-Type': 'multipart/form-data' }
+  });
+  return response.data;
+};
+
+export const generateBiddingDoc = async (formData) => {
+  const response = await api.post('/construction/generate_doc', formData, {
+    responseType: 'blob'
+  });
+  return response.data;
+};
+
 export const downloadReminder = async (projectName, manager) => {
   const response = await api.post('/dashboard/generate_reminder', { project_name: projectName, manager }, {
     responseType: 'blob',

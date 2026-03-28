@@ -53,11 +53,7 @@ const DashboardModule = () => {
     <div className="space-y-8 pb-20">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div className="space-y-1">
-          <h1 className="text-3xl font-bold tracking-tight text-slate-800 dark:text-white flex items-center gap-3">
-            <Layout className="w-8 h-8 text-sky-500" />
-            业务执行流监控中心
-          </h1>
-          <p className="text-slate-500 dark:text-slate-400 max-w-2xl text-sm">
+          <p className="text-slate-500 font-medium max-w-2xl text-sm">
             实时追踪全省招标项目的线上化进度、团队负荷及系统接口稳定性。
           </p>
         </div>

@@ -8,10 +8,12 @@ import {
   Zap, 
   Settings,
   ShieldCheck,
-  Cpu
+  Cpu,
+  FilePlus
 } from 'lucide-react';
 import ReviewModule from './components/ReviewModule';
 import WarningModule from './components/WarningModule';
+import ConstructionModule from './components/ConstructionModule';
 import DashboardModule from './components/DashboardModule';
 import SettingsModule from './components/SettingsModule';
 
@@ -19,9 +21,10 @@ function App() {
   const [activeTab, setActiveTab] = useState('review');
 
   const menuItems = [
-    { id: 'review', label: '招标文件智能审查', icon: Search, color: 'text-emerald-500' },
-    { id: 'warning', label: '交易平台操作预警', icon: AlertCircle, color: 'text-amber-500' },
-    { id: 'dashboard', label: '智能化协作看板', icon: LayoutDashboard, color: 'text-sky-500' },
+    { id: 'review', label: '文件合规智能核查', icon: Search, color: 'text-emerald-500' },
+    { id: 'construction', label: '标准化招标文件制作', icon: FilePlus, color: 'text-sky-400' },
+    { id: 'warning', label: '业务操作问题答疑', icon: AlertCircle, color: 'text-amber-500' },
+    { id: 'dashboard', label: '内部协作实时监测', icon: LayoutDashboard, color: 'text-sky-500' },
     { id: 'settings', label: '系统设置', icon: Settings, color: 'text-slate-400' },
   ];
 
@@ -29,13 +32,13 @@ function App() {
     <div className="flex h-screen w-screen overflow-hidden bg-[#f9f9f9] dark:bg-[#343541]">
       {/* Sidebar - Clean Professional Look */}
       <aside className="w-72 bg-[#202123] text-white flex flex-col p-4 shrink-0 shadow-xl">
-        <div className="flex items-center gap-3 px-2 py-6 mb-4">
-          <div className="w-10 h-10 bg-emerald-500 rounded-lg flex items-center justify-center shadow-lg shadow-emerald-500/20">
-            <Cpu className="text-white w-6 h-6" />
+        <div className="px-2 py-8 mb-4 border-b border-white/5">
+          <div className="h-14 w-full flex items-center justify-start bg-white/95 rounded-xl p-3 shadow-lg shadow-black/20 overflow-hidden">
+            <img src="/logo_hz.png" alt="HZ Logo" className="h-full w-auto object-contain" />
           </div>
-          <div>
-            <h1 className="text-lg font-bold tracking-tight">HZ-SAGE</h1>
-            <p className="text-[10px] text-slate-400 font-medium uppercase tracking-widest">AI Procurement Platform</p>
+          <div className="mt-4 flex items-center gap-2">
+            <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div>
+            <p className="text-[10px] text-slate-400 font-bold uppercase tracking-[0.2em]">智能采购平台·HZ-SAGE</p>
           </div>
         </div>
         
@@ -89,19 +92,25 @@ function App() {
 
       {/* Main Content Area */}
       <main className="flex-1 overflow-y-auto relative bg-white dark:bg-[#343541]">
-        {/* Simple Header */}
-        <header className="sticky top-0 z-20 bg-white/80 dark:bg-[#343541]/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-700 px-8 py-4 flex items-center justify-between">
-          <h2 className="text-xl font-semibold text-slate-800 dark:text-slate-100 italic">
-             {menuItems.find(i => i.id === activeTab)?.label}
-          </h2>
+        {/* Simple Header with Unified Title */}
+        <header className="sticky top-0 z-20 bg-white/80 dark:bg-[#343541]/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-700 px-8 py-5 flex items-center justify-between shadow-sm">
+          <div className="flex items-center gap-4">
+            {React.createElement(menuItems.find(i => i.id === activeTab)?.icon || Search, { className: `w-7 h-7 ${menuItems.find(i => i.id === activeTab)?.color}` })}
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100 tracking-tight">
+               {menuItems.find(i => i.id === activeTab)?.label}
+            </h2>
+          </div>
           <div className="flex items-center gap-4">
             <span className="text-[12px] font-mono text-slate-500 px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded">v1.2.5-stable</span>
-            <div className="w-8 h-8 bg-slate-200 rounded-full"></div>
+            <div className="w-9 h-9 bg-slate-200 rounded-full flex items-center justify-center overflow-hidden border-2 border-slate-100 dark:border-slate-800 shadow-sm hover:ring-2 hover:ring-emerald-500/20 transition-all cursor-pointer">
+              <img src="/avatar_admin.png" alt="Admin" className="w-full h-full object-cover" />
+            </div>
           </div>
         </header>
 
         <div className="ai-container animate-in fade-in slide-in-from-bottom-4 duration-500">
           {activeTab === 'review' && <ReviewModule />}
+          {activeTab === 'construction' && <ConstructionModule />}
           {activeTab === 'warning' && <WarningModule />}
           {activeTab === 'dashboard' && <DashboardModule />}
           {activeTab === 'settings' && <SettingsModule />}

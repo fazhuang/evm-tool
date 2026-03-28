@@ -9,7 +9,7 @@ load_dotenv()
 
 from utils.auth import verify_token
 
-from routers import review, warning, dashboard, settings
+from routers import review, warning, dashboard, settings, construction
 from services.settings_service import get_setting
 
 app = FastAPI(
@@ -36,6 +36,7 @@ app.include_router(review.router)
 app.include_router(warning.router, dependencies=[Depends(verify_token)])
 app.include_router(dashboard.router, dependencies=[Depends(verify_token)])
 app.include_router(settings.router) # Auth handled inside
+app.include_router(construction.router)
 
 @app.get("/")
 def health_check():

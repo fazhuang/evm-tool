@@ -24,13 +24,9 @@ const WarningModule = () => {
 
   return (
     <div className="space-y-8 pb-20">
-      <div className="space-y-2">
-        <h1 className="text-3xl font-bold tracking-tight text-slate-800 dark:text-white flex items-center gap-3">
-          <AlertCircle className="w-8 h-8 text-amber-500" />
-          交易平台智能排障
-        </h1>
-        <p className="text-slate-500 dark:text-slate-400 max-w-2xl leading-relaxed">
-          针对公共资源交易平台、CA 互认、电子固化工具等各种技术故障，提供基于最新排障库的即时专家诊断与抢救指南。
+      <div className="space-y-1">
+        <p className="text-slate-500 font-medium leading-relaxed">
+          针对公共资源交易平台实操、CA 证书、电子标书固化等各类业务流程及技术问题，提供即时专家级解答指南。
         </p>
       </div>
 

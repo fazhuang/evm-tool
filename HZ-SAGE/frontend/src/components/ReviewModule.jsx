@@ -92,12 +92,8 @@ const ReviewModule = () => {
   };
   return (
     <div className="space-y-8 pb-20">
-      <div className="space-y-2">
-        <h1 className="text-3xl font-bold tracking-tight text-slate-800 dark:text-white flex items-center gap-3">
-          <Search className="w-8 h-8 text-emerald-500" />
-          招标文件智能审查
-        </h1>
-        <p className="text-slate-500 dark:text-slate-400 max-w-2xl leading-relaxed">
+      <div className="space-y-1">
+        <p className="text-slate-500 font-medium leading-relaxed">
           依托深度语言模型与 RAG 增强检索，自动识别标书中的法律合规风险、逻辑冲突与关键缺失项。
         </p>
       </div>
